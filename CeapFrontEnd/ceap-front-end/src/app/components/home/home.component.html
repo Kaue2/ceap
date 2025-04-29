@@ -1,50 +1,148 @@
-<main class="content">
+<main
+  class="content"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  "
+>
   <header>
     <h1>Desafio Ceap</h1>
     <div>
-      <h3>
-        Cadastrar aluno:
-      </h3>
-      <div style="display: flex; gap: 2.65rem; align-items: center; flex-direction: column;">
-          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-            <h4>Nome</h4>
-            <input type="text" [(ngModel)]="aluno.nome">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-            <h4>Email</h4>
-            <input type="text" [(ngModel)]="aluno.email">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-            <h4>Curso</h4>
-            <input type="text" [(ngModel)]="aluno.curso">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-            <h4>Data de nascimento</h4>
-            <input type="date" value="{{aluno.dataNascimento}}" [(ngModel)]="aluno.dataNascimento">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-            <h4>Ativo</h4>
-            <input type="checkbox" [(ngModel)]="aluno.ativo">
-          </div>
-          <div style="display: flex; gap: 10px;">
-            <button style="height: 30px;" (click)="criarAluno()">Cadastrar</button>
-            <button style="height: 30px;" (click)="atualizarAluno()">Atualizar</button>
-          </div>
+      <h3>Cadastrar aluno:</h3>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          padding: 10px 20px;
+          border: 1px solid black;
+          border-radius: 20px;
+        "
+      >
+        <div style="display: flex; flex-direction: column">
+          <h4>Nome</h4>
+          <input
+            type="text"
+            [(ngModel)]="aluno.nome"
+            style="
+              padding: 5px 10px;
+              border-radius: 5px;
+              border: 1px solid gray;
+            "
+          />
         </div>
+        <div style="display: flex; flex-direction: column">
+          <h4>Email</h4>
+          <input
+            type="text"
+            [(ngModel)]="aluno.email"
+            style="
+              padding: 5px 10px;
+              border-radius: 5px;
+              border: 1px solid gray;
+            "
+          />
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <h4>Curso</h4>
+          <input
+            type="text"
+            [(ngModel)]="aluno.curso"
+            style="
+              padding: 5px 10px;
+              border-radius: 5px;
+              border: 1px solid gray;
+            "
+          />
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <h4>Data de nascimento</h4>
+          <input
+            type="date"
+            value="{{ aluno.dataNascimento }}"
+            [(ngModel)]="aluno.dataNascimento"
+            style="
+              padding: 5px 10px;
+              border-radius: 5px;
+              border: 1px solid gray;
+            "
+          />
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.2rem">
+          <h4>Ativo</h4>
+          <input type="checkbox" [(ngModel)]="aluno.ativo" />
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 10px">
+          <button
+            style="
+              height: 30px;
+              border: 1px solid black;
+              background-color: none;
+              border-radius: 5px;
+            "
+            (click)="criarAluno()"
+          >
+            Cadastrar
+          </button>
+          <button
+            style="
+              height: 30px;
+              border: 1px solid black;
+              background-color: none;
+              border-radius: 5px;
+            "
+            (click)="atualizarAluno()"
+          >
+            Atualizar
+          </button>
+        </div>
+      </div>
     </div>
   </header>
   <body>
-    <h3 style="width: 10rem;">Alunos:</h3>
-    <div style="display: flex; gap: 2.65rem; flex-direction: column; height: 25rem; overflow-y: scroll;">
-       @for (aluno of alunos; track $index) {
-        <div>
-          <p>{{aluno.nome}}</p>
-          <div style="display: flex; gap: 8px;">
-            <button (click)="selecionarAluno(aluno)">selecionar</button>
-            <button (click)="deletarAluno(aluno)">deletar</button>
-          </div>
+    <h3 style="width: 10rem">Alunos:</h3>
+    <div
+      style="
+        display: flex;
+        gap: 2.65rem;
+        flex-direction: column;
+        height: 25rem;
+        overflow-y: scroll;
+        border: 1px solid black;
+        padding: 15px 15px;
+        border-radius: 5px;
+      "
+    >
+      @for (aluno of alunos; track $index) {
+      <div>
+        <p style="font-size: 1.1rem">{{ aluno.nome }}</p>
+        <div style="display: flex; gap: 8px">
+          <button
+            style="
+              padding: 5px 3px;
+              border-radius: 5px;
+              border: 1px solid black;
+            "
+            (click)="selecionarAluno(aluno)"
+          >
+            selecionar
+          </button>
+          <button
+            style="
+              padding: 5px 3px;
+              border-radius: 5px;
+              border: 1px solid black;
+            "
+            (click)="deletarAluno(aluno)"
+          >
+            deletar
+          </button>
         </div>
-    }
+      </div>
+      }
     </div>
   </body>
 </main>
